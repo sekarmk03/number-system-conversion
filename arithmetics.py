@@ -3,24 +3,46 @@ from view import *
 # Using string for all bases (inc 10)
 
 def decimalToOther(number, base) :
-    output = ""
+    whole = ""
+    floating = "."
+    digit = 0
+    if "." in number:
+        number, frac = number.split(".")
+        frac = float("0." + frac)
+        while frac != 1.0:
+            frac -= int(digit)
+            digit = frac * base
+            if digit < 10:
+                floating += str(int(digit))
+            else:
+                floating += chr(ord('A') + (int(digit) - 10))
+            frac *= base
+            if digit == 0:
+                frac = 1.0
+
     number = int(float(number))
     while number > 0 :
-        digit = int(number%base)
+        digit = int(number % base)
 
         if digit < 10 :
-            output += str(digit)
+            whole += str(digit)
         else :
-            output += chr( ord('A') + (digit-10) )
+            whole += chr( ord('A') + (digit-10) )
 
         number //= base
 
-    # output is reversed string, so output first
-    return  output[::-1]
+    # whole is reversed string
+    return (whole[::-1] + floating)
 
 def otherToDecimal(number, base) :
     power = 1
     dec_int = 0
+    floating = 0
+
+    if "." in str(number):
+        number, fract = str(number).split(".")
+        for idx, digit in enumerate(fract):
+            floating += int(digit)*base**(-(idx+1))
 
     number = number[::-1]
 
@@ -31,7 +53,7 @@ def otherToDecimal(number, base) :
             dec_int += (ord(digit) - ord("A") + 10)*power
         power *= base
 
-    return str(dec_int)
+    return str(dec_int + floating)
 
 def printExclude(biner, okta, dec, hexadec, excludeBase):
     if excludeBase != 2 :
@@ -56,13 +78,13 @@ def aritmatika(num1, num2, base, operasi):
 
     output_dec = ""
     if operasi == "+":
-        output_dec = str(int(num1_dec) + int(num2_dec))
+        output_dec = str(float(num1_dec) + float(num2_dec))
     elif operasi == "-":
-        output_dec = str(int(num1_dec) - int(num2_dec))
+        output_dec = str(float(num1_dec) - float(num2_dec))
     elif operasi == "x" or operasi == "*":
-        output_dec = str(int(num1_dec) * int(num2_dec))
+        output_dec = str(float(num1_dec) * float(num2_dec))
     elif operasi == ":" or operasi == "/":
-        output_dec = str(int(num1_dec) / int(num2_dec))
+        output_dec = str(float(num1_dec) / float(num2_dec))
 
-    output = decimalToOther(output_dec, base)
-    return output
+    output = str(decimalToOther(output_dec, base))
+    return str(output)
