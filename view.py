@@ -161,7 +161,7 @@ aboutApp = [
     "+------------------------------+",
     "| Version   : 1.0              |",
     "+------------------------------+",
-    "| Language  : Python v3.10.0   |",
+    "| Language  : Python v3.9.7    |",
     "+------------------------------+",
     "| Packages  : math, os, time,  |",
     "| re, subprocess               |",
