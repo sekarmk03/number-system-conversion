@@ -7,24 +7,23 @@ def mainScreen():
     isAgain = 'y'
     while isAgain == 'y' or isAgain == 'Y':
         if str(menu) in mainChoice:
-            match menu:
-                case "1":
-                    numScreen()
-                case "2":
-                    arithScreen()
-                case "0":
-                    return
-                case "99":
-                    printMenu(userHelp, 0)
-                    isAgain = cycleCont()
-                case "88":
-                    printMenu(aboutApp, 0)
-                    isAgain = cycleCont()
-                case _:
-                    print("\n")
-                    spacer(15)
-                    print("-- Menu yg dipilih tidak valid")
-                    sleep(2)
+            if menu == "1":
+                numScreen()
+            elif menu == "2":
+                arithScreen()
+            elif menu == "0":
+                return
+            elif menu == "99":
+                printMenu(userHelp, 0)
+                isAgain = cycleCont()
+            elif menu == "88":
+                printMenu(aboutApp, 0)
+                isAgain = cycleCont()
+            else:
+                print("\n")
+                spacer(15)
+                print("-- Menu yg dipilih tidak valid")
+                sleep(2)
         else:
             print("\n")
             spacer(15)
@@ -42,39 +41,38 @@ def numScreen():
     isAgain = "y"
     while (isAgain == "y" or isAgain == "Y") and menu != 0:
         if str(menu) in numChoice:
-            match menu:
-                case "1":
-                    spacer(15)
-                    biner = input("-- Enter binary number: ")
-                    dec = otherToDecimal(biner, 2)
-                    _, okta, hexadec = getOthersBase(dec)
-                    printExclude(biner, okta, dec, hexadec, 2)
-                case "2":
-                    spacer(15)
-                    okta = input("-- Enter octal number: ")
-                    dec = otherToDecimal(okta, 8)
-                    biner, _, hexadec = getOthersBase(dec)
-                    printExclude(biner, okta, dec, hexadec, 8)
-                case "3":
-                    spacer(15)
-                    dec = input("-- Enter decimal number: ")
-                    biner, okta, hexadec = getOthersBase(dec)
-                    printExclude(biner, okta, dec, hexadec, 10)
-                case "4":
-                    spacer(15)
-                    hexadec = input("-- Enter hexadecimal number:")
-                    dec = otherToDecimal(hexadec, 16)
-                    biner, okta, _ = getOthersBase(dec)
-                    printExclude(biner, okta, dec, hexadec, 16)
-                case "0":
-                    mainScreen()
-                case "99":
-                    printMenu(userHelp, 0)
-                case _:
-                    print("\n")
-                    spacer(15)
-                    print("-- Menu yg dipilih tidak valid")
-                    sleep(2)
+            if menu == "1":
+                spacer(15)
+                biner = input("-- Enter binary number: ")
+                dec = otherToDecimal(biner, 2)
+                _, okta, hexadec = getOthersBase(dec)
+                printExclude(biner, okta, dec, hexadec, 2)
+            elif menu == "2":
+                spacer(15)
+                okta = input("-- Enter octal number: ")
+                dec = otherToDecimal(okta, 8)
+                biner, _, hexadec = getOthersBase(dec)
+                printExclude(biner, okta, dec, hexadec, 8)
+            elif menu == "3":
+                spacer(15)
+                dec = input("-- Enter decimal number: ")
+                biner, okta, hexadec = getOthersBase(dec)
+                printExclude(biner, okta, dec, hexadec, 10)
+            elif menu == "4":
+                spacer(15)
+                hexadec = input("-- Enter hexadecimal number:")
+                dec = otherToDecimal(hexadec, 16)
+                biner, okta, _ = getOthersBase(dec)
+                printExclude(biner, okta, dec, hexadec, 16)
+            elif menu == "0":
+                mainScreen()
+            elif menu == "99":
+                printMenu(userHelp, 0)
+            else:
+                print("\n")
+                spacer(15)
+                print("-- Menu yg dipilih tidak valid")
+                sleep(2)
         else:
             print("\n")
             spacer(15)
@@ -100,28 +98,27 @@ def arithScreen():
     print("\n")
     while isAgain == "y" or isAgain == "Y":
         if str(menu) in arithChoice:
-            match menu:
-                case "1":
-                    spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 2, operation))
-                case "2":
-                    spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 8, operation))
-                case "3":
-                    spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 10, operation))
-                case "4":
-                    spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 16, operation))
-                case "0":
-                    mainScreen()
-                case "99":
-                    printMenu(userHelp)
-                case _:
-                    print("\n")
-                    spacer(15)
-                    print("-- Menu yg dipilih tidak valid")
-                    sleep(2)
+            if menu == "1":
+                spacer(15)
+                print(">> Hasil : " + aritmatika(num1, num2, 2, operation))
+            elif menu == "2":
+                spacer(15)
+                print(">> Hasil : " + aritmatika(num1, num2, 8, operation))
+            elif menu == "3":
+                spacer(15)
+                print(">> Hasil : " + aritmatika(num1, num2, 10, operation))
+            elif menu == "4":
+                spacer(15)
+                print(">> Hasil : " + aritmatika(num1, num2, 16, operation))
+            elif menu == "0":
+                mainScreen()
+            elif menu == "99":
+                printMenu(userHelp)
+            else:
+                print("\n")
+                spacer(15)
+                print("-- Menu yg dipilih tidak valid")
+                sleep(2)
         else:
             print("\n")
             spacer(15)
