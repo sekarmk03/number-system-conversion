@@ -3,9 +3,9 @@ from screenManager import *
 from view import *
 
 def main():
-    # name = welcomeScreen()
+    name = welcomeScreen()
     mainScreen()
-    # goodByeScreen(name)
+    goodByeScreen(name)
     
 if __name__ == "__main__" :
     main()
