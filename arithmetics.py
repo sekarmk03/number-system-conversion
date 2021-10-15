@@ -4,7 +4,7 @@ from view import *
 
 def decimalToOther(number, base) :
     output = ""
-    number = int(number)
+    number = int(float(number))
     while number > 0 :
         digit = int(number%base)
 
