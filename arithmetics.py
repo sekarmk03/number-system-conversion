@@ -32,7 +32,7 @@ def decimalToOther(number, base) :
         number //= base
 
     # whole is reversed string
-    return (whole[::-1] + floating)
+    return (whole[::-1] + floating) if floating != "." else (whole[::-1])
 
 def otherToDecimal(number, base) :
     power = 1
