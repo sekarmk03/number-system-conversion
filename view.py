@@ -5,17 +5,20 @@ from re import *
 from arithmetics import *
 # Using string for all bases (inc 10)
 
+
 def clearScreen():
     # for windows
     if name == 'nt':
         _ = system('cls')
-  
+
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
 
+
 def spacer(n):
     print(" " * n, end="")
+
 
 def printRunningText(text, spacing):
     for i in range(len(text)):
@@ -24,6 +27,7 @@ def printRunningText(text, spacing):
             print(text[i][j], end="")
             sleep(0.05)
         print("")
+
 
 def welcomeScreen():
     clearScreen()
@@ -55,6 +59,7 @@ def welcomeScreen():
         sleep(1)
     return name
 
+
 def printMenu(listMenu, n):
     if n != 0:
         clearScreen()
@@ -72,6 +77,8 @@ def printMenu(listMenu, n):
             print(row)
 
 # header app
+
+
 def appHeader():
     header = [
         "++============================++",
@@ -84,20 +91,25 @@ def appHeader():
         print(header[i])
 
 # cycle controller
+
+
 def cycleCont():
     spacer(15)
     isAgain = input("-- Wanna try once again? (y/n) ")
     return isAgain
 
+
 def choosenMenu():
     spacer(15)
     return input("-- Enter your choice : ")
+
 
 def listingMenu(menuList):
     dec = []
     for i in range(len(menuList)):
         dec += findall(r"[-+]?\d*\.\d+|\d+", menuList[i])
     return dec
+
 
 # menu
 mainMenu = [
@@ -167,7 +179,7 @@ aboutApp = [
     "| re, subprocess               |",
     "+------------------------------+",
     "| Authors   : Team 5 - (Aldi,  |",
-    "| Azar, Sekar, Zakaria, Riski) |",
+    "| Azar, Sekar, Zakaria,D'Riski)|",
     "+------------------------------+",
     "| (c) 2021 All Rights Reserved |",
     "+------------------------------+",
