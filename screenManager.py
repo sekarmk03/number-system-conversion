@@ -2,9 +2,10 @@ from arithmetics import *
 from view import *
 
 def mainScreen():
-    printMenu(mainMenu, len(mainChoice))
+    printMenu(mainMenu, len(mainMenu)-1)
     menu = choosenMenu()
-    while True:
+    isAgain = 'y'
+    while isAgain == 'y' or isAgain == 'Y':
         if str(menu) in mainChoice:
             match menu:
                 case "1":
@@ -14,9 +15,11 @@ def mainScreen():
                 case "0":
                     return
                 case "99":
-                    print("help")
+                    printMenu(userHelp, 0)
+                    isAgain = cycleCont()
                 case "88":
-                    print("about")
+                    printMenu(aboutApp, 0)
+                    isAgain = cycleCont()
                 case _:
                     print("\n")
                     spacer(15)
@@ -27,11 +30,14 @@ def mainScreen():
             spacer(15)
             print("-- Menu yg dipilih tidak valid")
             sleep(2)
-        printMenu(mainMenu, len(mainChoice))
-        menu = choosenMenu()
+        if isAgain == 'y' or isAgain == 'Y':
+            printMenu(mainMenu, len(mainMenu)-1)
+            menu = choosenMenu()
+        else:
+            return
 
 def numScreen():
-    printMenu(numConvMenu, len(numChoice))
+    printMenu(numConvMenu, len(numConvMenu)-1)
     menu = choosenMenu()
     isAgain = "y"
     while (isAgain == "y" or isAgain == "Y") and menu != 0:
@@ -63,7 +69,7 @@ def numScreen():
                 case "0":
                     mainScreen()
                 case "99":
-                    print("help")
+                    printMenu(userHelp, 0)
                 case _:
                     print("\n")
                     spacer(15)
@@ -76,12 +82,12 @@ def numScreen():
             sleep(2)
         isAgain = cycleCont()
         if isAgain == "y" or isAgain == "Y":
-            printMenu(numConvMenu, len(numChoice))
+            printMenu(numConvMenu, len(numConvMenu)-1)
             menu = choosenMenu()
     mainScreen()
 
 def arithScreen():
-    printMenu(arithMenu, len(arithChoice))
+    printMenu(arithMenu, len(arithMenu)-1)
     menu = choosenMenu()
     isAgain = "y"
     print("\n")
@@ -110,7 +116,7 @@ def arithScreen():
                 case "0":
                     mainScreen()
                 case "99":
-                    print("help")
+                    printMenu(userHelp)
                 case _:
                     print("\n")
                     spacer(15)
@@ -123,7 +129,7 @@ def arithScreen():
             sleep(2)
         isAgain = cycleCont()
         if isAgain == "y" or isAgain == "Y":
-            printMenu(arithMenu, len(arithChoice))
+            printMenu(arithMenu, len(arithMenu)-1)
             menu = choosenMenu()
             print("\n")
             spacer(15)
