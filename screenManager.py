@@ -75,7 +75,7 @@ def numScreen():
             elif menu == "4":
                 spacer(15)
                 hexadec = input("-- Enter hexadecimal number:")
-                if (findall("[0-7]|[a-f]|[A-F]|[.]", str(hexadec))):
+                if (findall("[0-9]|[a-f]|[A-F]|[.]", str(hexadec))):
                     dec = otherToDecimal(hexadec, 16)
                     biner, octal, _ = getOthersBase(dec)
                     printExclude(biner, octal, dec, hexadec, 16)
