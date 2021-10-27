@@ -81,7 +81,7 @@ def numScreen():
                     printExclude(biner, octal, dec, hexadec, 16)
                 else:
                     spacer(15)
-                    print("-- !Input Error (expect 0 until 7 or a|A until f|F)")
+                    print("-- !Input Error (expect 0 until 9 or a|A until f|F)")
             elif menu == "0":
                 mainScreen()
             elif menu == "99":
@@ -120,28 +120,28 @@ def arithScreen():
             if menu == "1":
                 if (findall("[0-1]|[.]", str(checkNum))):
                     spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 2, operation))
+                    print(">> Result : " + aritmatika(num1, num2, 2, operation))
                 else:
                     spacer(15)
                     print("-- !Input Error (expect 1 or 0)")
             elif menu == "2":
                 if (findall("[0-7]|[.]", str(checkNum))):
                     spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 8, operation))
+                    print(">> Result : " + aritmatika(num1, num2, 8, operation))
                 else:
                     spacer(15)
                     print("-- !Input Error (expect 0 until 7)")
             elif menu == "3":
                 if (findall("[0-9]|[.]", str(checkNum))):
                     spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 10, operation))
+                    print(">> Result : " + aritmatika(num1, num2, 10, operation))
                 else:
                     spacer(15)
                     print("-- !Input Error (expect 1 until 9)")
             elif menu == "4":
                 if (findall("[0-9]|[a-f]|[A-F]|[.]", str(checkNum))):
                     spacer(15)
-                    print(">> Hasil : " + aritmatika(num1, num2, 16, operation))
+                    print(">> Result : " + aritmatika(num1, num2, 16, operation))
                 else:
                     spacer(15)
                     print("-- !Input Error (expect 0 until 7 or a|A until f|F)")
