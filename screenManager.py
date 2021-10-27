@@ -132,14 +132,14 @@ def arithScreen():
                     spacer(15)
                     print("-- !Input Error (expect 0 until 7)")
             elif menu == "3":
-                if (findall("[0-9] | [.]", str(checkNum))):
+                if (findall("[0-9]|[.]", str(checkNum))):
                     spacer(15)
                     print(">> Hasil : " + aritmatika(num1, num2, 10, operation))
                 else:
                     spacer(15)
                     print("-- !Input Error (expect 1 until 9)")
             elif menu == "4":
-                if (findall("[0-7] | [a-f] | [A-F] | [.]", str(checkNum))):
+                if (findall("[0-9]|[a-f]|[A-F]|[.]", str(checkNum))):
                     spacer(15)
                     print(">> Hasil : " + aritmatika(num1, num2, 16, operation))
                 else:
